@@ -58,7 +58,7 @@ public class WorkListener implements Listener {
                         functionKey.clickEventValue="type:display,remove:"+Color.returnColor(display);
                         functionKey.hoverEventTextValue="点击删除当前行的替换";
                         new Sender(TextReplacer.getInstance()).sendToPlayerBC(player,
-                                TextProcessing.Merge(functionKey.getBaseComponet(),Processing.StrToBaseComponent(replaceLib.getElement(display).result)));
+                                TextProcessing.Merge(functionKey.getBaseComponet(),Processing.StrToBaseComponent(ReplaceLibGetter.goReplaceLib(display))));
                     }else {
                         new Sender(TextReplacer.getInstance()).sendToPlayerBC(player,
                                 TextProcessing.Merge(functionKey.getBaseComponet(),Processing.StrToBaseComponent(display)));
@@ -79,7 +79,7 @@ public class WorkListener implements Listener {
                             functionKey.clickEventValue="type:lore,remove:"+Color.returnColor(s);
                             functionKey.hoverEventTextValue="点击删除当前行的替换";
                             new Sender(TextReplacer.getInstance()).sendToPlayerBC(player,
-                                    TextProcessing.Merge(functionKey.getBaseComponet(),Processing.StrToBaseComponent(replaceLib.getElement(s).result)));
+                                    TextProcessing.Merge(functionKey.getBaseComponet(),Processing.StrToBaseComponent(ReplaceLibGetter.goReplaceLib(s))));
                         }else {
                             new Sender(TextReplacer.getInstance()).sendToPlayerBC(player,
                                     TextProcessing.Merge(functionKey.getBaseComponet(),Processing.StrToBaseComponent(s)));

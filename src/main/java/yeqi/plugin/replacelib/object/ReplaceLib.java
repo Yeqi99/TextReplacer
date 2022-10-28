@@ -41,6 +41,7 @@ public class ReplaceLib {
         saveYaml();
     }
     public void removeElement(String object,String type){
+        object=Color.toColor(object);
         for(int i=0;i<replaceElements.size();i++){
             if (replaceElements.get(i).object.equals(object)){
                 if (replaceElements.get(i).type.equalsIgnoreCase(type)){
@@ -52,14 +53,16 @@ public class ReplaceLib {
         }
     }
     public boolean hasElement(String object){
+        object=Color.toColor(object);
         for (ReplaceElement replaceElement:replaceElements){
-            if (replaceElement.object.equals(object)){
+            if (object.contains(replaceElement.object)){
                 return true;
             }
         }
         return false;
     }
     public ReplaceElement getElement(String object){
+        object=Color.toColor(object);
         for (ReplaceElement replaceElement:replaceElements){
             if (replaceElement.object.equals(object)){
                 return replaceElement;
