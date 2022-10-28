@@ -7,8 +7,10 @@ import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.events.PacketEvent;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+import yeqi.plugin.replacelib.data.ReplaceLibGetter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +28,7 @@ public class ContainerListener extends PacketAdapter {
                 resultItems.add(item);
                 continue;
             }
-
+            ItemMeta itemMeta= item.getItemMeta();
         }
     }
 }
