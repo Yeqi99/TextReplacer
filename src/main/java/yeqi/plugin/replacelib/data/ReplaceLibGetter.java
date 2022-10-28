@@ -6,6 +6,7 @@ import yeqi.plugin.replacelib.object.ReplaceElement;
 import yeqi.plugin.replacelib.object.ReplaceLib;
 import yeqi.plugin.textreplacer.TextReplacer;
 import yeqi.tools.yeqilib.file.DataGetter;
+import yeqi.tools.yeqilib.message.Color;
 import yeqi.tools.yeqilib.message.Sender;
 import yeqi.tools.yeqilib.message.TextProcessing;
 
@@ -51,5 +52,13 @@ public class ReplaceLibGetter {
             }
         }
         return str;
+    }
+    public static ReplaceLib getReplace(String id){
+        for (ReplaceLib replaceLib:replaceLibs){
+            if (replaceLib.id.equals(id)){
+                return replaceLib;
+            }
+        }
+        return null;
     }
 }

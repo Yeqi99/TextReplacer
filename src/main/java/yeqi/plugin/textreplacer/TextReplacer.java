@@ -25,7 +25,7 @@ public final class TextReplacer extends YeqiPlugin {
         sd=new Sender(this);
         ReplaceLibGetter.getData();
         saveDefaultConfig();
-        saveResource("replacelib/example.yml",false);
+        saveResource("replacelib/normal.yml",false);
         ProtocolLibHook.pm.addPacketListener(new ContainerListener(this));
         sd.sendOnEnableMsgToLogger("TextReplacer","Yeqi","1.0.0","Premium");
         CommandRegister.register(this,new TextReplacerCommand(),"textreplacer");

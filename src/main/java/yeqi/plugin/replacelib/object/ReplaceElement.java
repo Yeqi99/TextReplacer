@@ -1,6 +1,7 @@
 package yeqi.plugin.replacelib.object;
 
 import org.bukkit.configuration.file.YamlConfiguration;
+import yeqi.tools.yeqilib.message.Color;
 import yeqi.tools.yeqilib.message.TextProcessing;
 
 public class ReplaceElement {
@@ -15,11 +16,16 @@ public class ReplaceElement {
         if (object.contains("!")){
             object=yml.getString("key."+object.replace("!",""));
         }
+        object=Color.toColor(object);
+        result=Color.toColor(result);
     }
     public void getDataFromStr(String str){
         TextProcessing tp=new TextProcessing(str);
         object=tp.getValue("object");
         result=tp.getValue("result");
         type=tp.getValue("type");
+    }
+    public String getFormat(){
+        return "object:"+object+",result:"+result+",type:"+type;
     }
 }

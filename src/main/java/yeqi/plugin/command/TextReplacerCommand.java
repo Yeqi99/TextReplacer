@@ -6,6 +6,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import yeqi.plugin.listener.work.WorkListener;
 import yeqi.plugin.replacelib.data.ReplaceLibGetter;
+import yeqi.plugin.replacelib.object.ReplaceLib;
 
 public class TextReplacerCommand implements CommandExecutor {
     @Override
@@ -32,6 +33,13 @@ public class TextReplacerCommand implements CommandExecutor {
                 WorkListener.addPlayer(player);
             }
             return true;
+        }else if(args[0].equalsIgnoreCase("set")){
+            ReplaceLib replaceLib=ReplaceLibGetter.getReplace(args[1]);
+            if (replaceLib==null){
+                sender.sendMessage("未找到指定替换库");
+                return true;
+            }
+            WorkListener.replaceLib=replaceLib;
         }
         return false;
     }
