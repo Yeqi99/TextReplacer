@@ -13,8 +13,8 @@ public class ReplaceLib {
     public YamlConfiguration yml;
     public ReplaceLib(YamlConfiguration yml){
         this.yml=yml;
-        this.id=yml.getString("id");
-        for (String s:yml.getStringList("replace")){
+        this.id=this.yml.getString("id");
+        for (String s:this.yml.getStringList("replace")){
             ReplaceElement replaceElement=new ReplaceElement(s,yml);
             replaceElements.add(replaceElement);
         }

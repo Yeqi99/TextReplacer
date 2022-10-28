@@ -29,6 +29,15 @@ public class ContainerListener extends PacketAdapter {
                 continue;
             }
             ItemMeta itemMeta= item.getItemMeta();
+            if (itemMeta.hasDisplayName()){
+                itemMeta.setDisplayName(ReplaceLibGetter.goReplaceLib(itemMeta.getDisplayName()));
+            }
+            if (itemMeta.hasLore()){
+                itemMeta.setLore(ReplaceLibGetter.goReplaceLib(itemMeta.getLore()));
+            }
+            item.setItemMeta(itemMeta);
+            resultItems.add(item);
         }
+        packet.getItemListModifier().write(0,resultItems);
     }
 }

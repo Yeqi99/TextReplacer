@@ -6,6 +6,7 @@ import yeqi.plugin.replacelib.object.ReplaceElement;
 import yeqi.plugin.replacelib.object.ReplaceLib;
 import yeqi.plugin.textreplacer.TextReplacer;
 import yeqi.tools.yeqilib.file.DataGetter;
+import yeqi.tools.yeqilib.message.Sender;
 import yeqi.tools.yeqilib.message.TextProcessing;
 
 import java.util.ArrayList;
@@ -28,11 +29,27 @@ public class ReplaceLibGetter {
     public static List<String> goReplaceLib(List<String> strList){
         for (ReplaceLib replaceLib:replaceLibs){
             for (ReplaceElement replaceElement : replaceLib.replaceElements) {
+                if (!replaceElement.type.equalsIgnoreCase("lore")){
+                    continue;
+                }
                 if(TextProcessing.hasText(strList,replaceElement.object)){
                     strList= TextProcessing.replaceList(strList, replaceElement.object,replaceElement.result);
                 }
             }
         }
         return strList;
+    }
+    public static String goReplaceLib(String str){
+        for (ReplaceLib replaceLib:replaceLibs){
+            for (ReplaceElement replaceElement : replaceLib.replaceElements) {
+                if (!replaceElement.type.equalsIgnoreCase("display")){
+                    continue;
+                }
+                if (str.contains(replaceElement.object)){
+                    str=str.replace(replaceElement.object,replaceElement.result);
+                }
+            }
+        }
+        return str;
     }
 }

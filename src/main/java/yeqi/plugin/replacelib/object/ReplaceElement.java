@@ -6,6 +6,7 @@ import yeqi.tools.yeqilib.message.TextProcessing;
 public class ReplaceElement {
     public String object;
     public String result;
+    public String type;
     public ReplaceElement(String str, YamlConfiguration yml){
         getDataFromStr(str);
         if (result.contains("!")){
@@ -19,5 +20,6 @@ public class ReplaceElement {
         TextProcessing tp=new TextProcessing(str);
         object=tp.getValue("object");
         result=tp.getValue("result");
+        type=tp.getValue("type");
     }
 }

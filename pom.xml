@@ -79,7 +79,7 @@
             <artifactId>yeqi-lib</artifactId>
             <version>1.0.0-SNAPSHOT</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/original-YeqiLib-1.0.1.jar</systemPath>
+            <systemPath>${project.basedir}/lib/original-YeqiLib-1.0.2.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.comphenix.protocol</groupId>
