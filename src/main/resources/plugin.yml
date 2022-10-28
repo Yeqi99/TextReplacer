@@ -1,0 +1,13 @@
+name: TextReplacer
+version: '${project.version}'
+main: yeqi.plugin.textreplacer.TextReplacer
+api-version: 1.13
+authors: [ Yeqi ]
+depend:
+  - YeqiLib
+  - ProtocolLib
+commands:
+  textreplacer:
+    aliases:
+      - tp
+      - replacer

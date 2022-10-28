@@ -1,0 +1,8 @@
+id: example
+enable: true
+replace:
+  - "object:hello world,result:!sometext"
+  - "object:sb,result:沙比"
+# 对于占位符,冲突的情况 请将内容指定为key 以!key的形式调用内容
+key:
+  sometext: 你好世界
