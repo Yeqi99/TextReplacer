@@ -17,7 +17,7 @@ public class TextReplacerCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!sender.isOp()){
-            if (!sender.hasPermission("TextReplacer.admin")){
+            if (!sender.hasPermission("textreplacer.admin")){
                 return true;
             }
         }
