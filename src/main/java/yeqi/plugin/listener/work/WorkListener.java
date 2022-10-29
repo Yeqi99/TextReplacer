@@ -97,12 +97,14 @@ public class WorkListener implements Listener {
             if(tp.getValue("remove")!=null){
                 while(replaceLib.hasElement(tp.getValue("remove"))){
                     replaceLib.removeElement(tp.getValue("remove"),tp.getValue("type"));
+                    new Sender(TextReplacer.getInstance()).sendToPlayer(e.getPlayer(),"&a删除成功!");
                 }
                 e.setCancelled(true);
                 return;
             }
             replaceLib.addElement(formatStr);
             e.setCancelled(true);
+            new Sender(TextReplacer.getInstance()).sendToPlayer(e.getPlayer(),"&a添加成功!");
         }
     }
     public static boolean hasPlayer(Player player){

@@ -1,0 +1,8 @@
+# 关闭后想要开启需要重启服务器
+refresh:
+  # 定时刷新
+  timer:
+    # 是否开启
+    enable: true
+    # 间隔时间 20=1s
+    interval: 20

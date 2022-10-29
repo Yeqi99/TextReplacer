@@ -10,11 +10,11 @@ public class ReplaceElement {
     public String type;
     public ReplaceElement(String str, YamlConfiguration yml){
         getDataFromStr(str);
-        if (result.contains("!")){
-            result=yml.getString("key."+result.replace("!",""));
+        if (result.contains("^")){
+            result=yml.getString("key."+result.replace("^",""));
         }
-        if (object.contains("!")){
-            object=yml.getString("key."+object.replace("!",""));
+        if (object.contains("^")){
+            object=yml.getString("key."+object.replace("^",""));
         }
         object=Color.toColor(object);
         result=Color.toColor(result);

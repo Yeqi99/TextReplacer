@@ -22,9 +22,11 @@ public final class TextReplacer extends YeqiPlugin {
     @Override
     public void onEnable() {
         super.onEnable();
+        setInstance(this);
         sd=new Sender(this);
         ReplaceLibGetter.getData();
         saveDefaultConfig();
+        WorkListener.replaceLib=ReplaceLibGetter.getReplace("normal");
         saveResource("replacelib/normal.yml",false);
         ProtocolLibHook.pm.addPacketListener(new ContainerListener(this));
         sd.sendOnEnableMsgToLogger("TextReplacer","Yeqi","1.0.0","Premium");
@@ -33,6 +35,9 @@ public final class TextReplacer extends YeqiPlugin {
         new BukkitRunnable() {
             @Override
             public void run() {
+                if (!getConfig().getBoolean("refresh.timer.enable")){
+                    cancel();
+                }
                 for (Player player: Bukkit.getOnlinePlayers()){
                     if(player.getItemOnCursor().getType().equals(Material.AIR)){
                         if (player.getGameMode().equals(GameMode.SURVIVAL)){
@@ -42,7 +47,7 @@ public final class TextReplacer extends YeqiPlugin {
                     }
                 }
             }
-        }.runTaskTimerAsynchronously(this,0,20);
+        }.runTaskTimerAsynchronously(this,0,getConfig().getInt("refresh.timer.interval"));
     }
 
     @Override

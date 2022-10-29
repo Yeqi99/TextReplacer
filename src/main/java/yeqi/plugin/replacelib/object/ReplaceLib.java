@@ -43,7 +43,7 @@ public class ReplaceLib {
     public void removeElement(String object,String type){
         object=Color.toColor(object);
         for(int i=0;i<replaceElements.size();i++){
-            if (replaceElements.get(i).object.equals(object)){
+            if(object.contains(replaceElements.get(i).object)){
                 if (replaceElements.get(i).type.equalsIgnoreCase(type)){
                     replaceElements.remove(i);
                     saveYaml();
