@@ -5,6 +5,7 @@ import com.comphenix.protocol.events.ListenerPriority;
 import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.events.PacketEvent;
+import hook.PlaceholderAPIHook;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -34,6 +35,14 @@ public class ContainerListener extends PacketAdapter {
             }
             if (itemMeta.hasLore()){
                 itemMeta.setLore(ReplaceLibGetter.goReplaceLib(itemMeta.getLore()));
+            }
+            if(PlaceholderAPIHook.isLoad){
+                if (itemMeta.hasDisplayName()){
+                    itemMeta.setDisplayName(PlaceholderAPIHook.getPlaceholder(e.getPlayer(), itemMeta.getDisplayName()));
+                }
+               if(itemMeta.hasLore()){
+                   itemMeta.setLore(PlaceholderAPIHook.getPlaceholder(e.getPlayer(),itemMeta.getLore()));
+               }
             }
             item.setItemMeta(itemMeta);
             resultItems.add(item);
